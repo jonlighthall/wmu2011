@@ -1,0 +1,82 @@
+\documentclass[oneside,openany,10pt]{book}
+\newcommand{\Chapter}[1]{\chapter[\texorpdfstring{\MakeUppercase{#1}}{#1}]{#1}}
+\input{packages-template} %% Load optional packages
+\input{../More_Files/autotext}
+\input{layout}
+%\singlespace
+\hypersetup{pdfstartview=FitV,pdfpagelayout=SinglePage}
+\usepackage{fancyvrb}
+\begin{document}
+\doublespace
+\frontmatter
+\newlength{\newtocskip}
+%\setlength{\newtocskip}{30pt}
+%\chapter{\texorpdfstring{\vspace{-0.4\baselineskip}}{}Acknowledgments}
+%\singlespace
+\chapter{Acknowledgments}
+
+\begin{spacing}{2}
+\pangram{60}
+\end{spacing}
+\renewcommand \contentsname{Table of Contents}
+\let\contname\contentsname
+\renewcommand \contentsname{\vspace{\newtocskip}\contname}
+\clearpage 
+\phantomsection
+\pdfbookmark[0]{\contname}{\contname}
+\enlargethispage{-\newtocskip}
+\tableofcontents
+
+\cleardoublepage
+\phantomsection
+%\chead{\listtablename---Continued}
+\let\listtname\listtablename
+\renewcommand \listtablename{\vspace{\newtocskip}\listtname}
+%\addcontentsline{toc}{chapter}{\texorpdfstring{\uppercase{\listtname}}{\listtname}}
+\listoftables
+\cleardoublepage
+\phantomsection
+%\chead{\listtablename---Continued}
+\let\listfname\listfigurename
+\renewcommand \listfigurename{\vspace{\newtocskip}\listfname}
+%\addcontentsline{toc}{chapter}{\texorpdfstring{\uppercase{\listfname}}{\listfname}}
+\listoffigures
+\mainmatter
+\VerbatimFootnotes
+%% Files to include--------------%-------------------------------
+\chapter{Notes}
+\begin{itemize}
+	\item In the book class, fancyvrb and VerbatimFootnotes are needed for proper links to footnotes with hyperref.
+	\item In the wmu-thesis class, (when compiling the thsis) the inclusion of VerbatimFootnotes causes errors with hyperref.
+	\item The default vertical spacing in the book class is to place unnumbered chapter headings on the same level as the Table of Contents and list of tables, etc.
+	\item The position of these levels moves down 0.4 baselineskip when double spacing is used.  Adding \verb|\vspace{-0.4\baselineskip}| to the section headings or bracketing the declaration of the section headings with \verb|singlespace| and \verb|\doublespce| moves the section headings to their position with singlespace.
+	
+	\item the package tocloft raises the headings of the toc, lof, lot by 30\,pt (1.5 baselineskip)for 10\,pt, 1.25 baselineskip or 27.5\,pt for 11\,pt, 25\,pt or about 1 baseline skip for 12\,pt.  baseline skip is \the\baselineskip
+\end{itemize}
+
+\autotext{30}{40}{6}
+\clearpage 
+\phantomsection
+\pdfbookmark[0]{Acknowledgments}{A}
+\chapter*{Acknowledgments}
+\clearpage 
+\phantomsection
+\pdfbookmark[0]{Table of Contents}{T}
+\chapter*{Table of Contents}
+\clearpage 
+\phantomsection
+\pdfbookmark[0]{List of Tables}{lT}
+\chapter*{List of Tables}
+\clearpage 
+\phantomsection
+\pdfbookmark[0]{List of Figures}{lf}
+\chapter*{List of Figures}
+
+\clearpage 
+\phantomsection
+\pdfbookmark[0]{References}{R}
+\chapter*{References}
+\providecommand{\oneappendix}{\appendix}
+\providecommand{\twoappendix}{\appendix}
+\input{back_matter}
+\end{document}

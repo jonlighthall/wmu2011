@@ -1,0 +1,28 @@
+\documentclass[twoside]{wmu-thesis}
+\input{packages-template} %% Load optional packages
+\input{../More_Files/autotext}
+\doublespacing
+\hypersetup{pdfstartpage=1}
+%\doublespacing %standard word processor doublespace
+\begin{document}
+\frontmatter 
+\mainmatter
+%\VerbatimFootnotes
+%\singlespace
+%\lhead{\textsl{\leftmark}} %No headings!!! 
+%% Files to include--------------%-------------------------------
+\autotext{30}{4}{6}
+\clearpage 
+\phantomsection
+\pdfbookmark[0]{Acknowledgments}{A}
+\chapter*{Acknowledgments}
+\clearpage 
+\phantomsection
+\pdfbookmark[0]{Table of Contents}{T}
+\chapter*{Table of Contents}
+\clearpage 
+\phantomsection
+\pdfbookmark[0]{References}{R}
+\chapter*{References}
+\input{back_matter}
+\end{document}

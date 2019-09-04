@@ -1,0 +1,65 @@
+%% Set non-LaTeX-standard layout formatting to comply with WMU guidelines.
+
+%% Spacing-----------------------%-------------------------------
+%% The default document line spacing is single-space.  Double spacing is typical for thesis 
+%  submission.  Two types of double spacing are available: 'typewriter' double spacing, which 
+%  leaves a full line of space between two lines of text; and 'word processor' double spacing, 
+%  which separates each line of text by about about 1.6 lines.  Set double spacing below.  
+
+%\setstretch{2} %typewriter doublesace
+ \doublespacing %standard word processor doublespace
+
+%  Note: using word processor-style double spacing with wide margins produces documents of
+%  nearly the same length as single-spaced documents with narrow (default) margins.
+
+%% Margins-----------------------%-------------------------------
+%% The WMU guidlines are contradictory when it comes to margins.  The left-hand margin is either
+%  required to be 1.5 inches excatly, or at least 1.5 inches.  The margins on the remaining 
+%  sides must be at least 1.0 inch.  The following lines set the margins to maximum limits.
+
+%% For narrow margins (word processor style), set margins below.
+\addtolength{\textwidth}{1.5in}						\addtolength{\hoffset}{-0.4375in}
+\addtolength{\textheight}{1.75in}					\addtolength{\voffset}{-0.875in}
+\reversemarginpar %Moves margin notes to the wider margin
+
+%  The margins on the abstract and title pages are required to be 1.75 inches.  The following 
+%  line assumes the margins above are already set
+%\newlength{\titleskip}\setlength{\titleskip}{51pt}
+
+%% Double-sided------------------%-------------------------------
+%  Double-sided printing is prohibited by the WMU guidelines, however...
+
+%  For double-sided documents, include the document class option [twoside].
+%  To allow chapters to open on even pages (to preserve pagination), include the document class 
+%  option [openany].
+
+%  For double-sided documents with narrow margins, set margins below.  These margin settings 
+%  leave the odd-page margins unchanged while increasing the even-page left-hand margins by 
+%  0.5 inches so that the margins are the same on both sides of the page.
+%   \setlength{\oddsidemargin}{62pt}
+% \addtolength{\evensidemargin}{-1in}
+% \addtolength{\marginparwidth}{-56pt}
+
+\hyphenation{feed-through feed-throughs ejec-tile ejec-tiles cor-re-spond-ing sol-en-oid-al}
+
+%% The following definition adds tab leaders (dots) to the chapter entries in the Table of 
+%  Contents
+\makeatletter
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\normalfont\leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\makeatother
