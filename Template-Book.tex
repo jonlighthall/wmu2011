@@ -1,11 +1,9 @@
 \documentclass[oneside,openany,10pt]{book}
 \newcommand{\Chapter}[1]{\chapter[\texorpdfstring{\MakeUppercase{#1}}{#1}]{#1}}
-\input{packages-template} %% Load optional packages
-\input{src/autotext}
+\input{packages-template.tex} %% Load optional packages
 \input{layout}
 %\singlespace
 \hypersetup{pdfstartview=FitV,pdfpagelayout=SinglePage}
-\usepackage{fancyvrb}
 \begin{document}
 \doublespace
 \frontmatter
@@ -42,7 +40,7 @@
 %\addcontentsline{toc}{chapter}{\texorpdfstring{\uppercase{\listfname}}{\listfname}}
 \listoffigures
 \mainmatter
-\VerbatimFootnotes
+%\VerbatimFootnotes
 %% Files to include--------------%-------------------------------
 \chapter{Notes}
 \begin{itemize}
@@ -54,7 +52,7 @@
 	\item the package tocloft raises the headings of the toc, lof, lot by 30\,pt (1.5 baselineskip)for 10\,pt, 1.25 baselineskip or 27.5\,pt for 11\,pt, 25\,pt or about 1 baseline skip for 12\,pt.  baseline skip is \the\baselineskip
 \end{itemize}
 
-\autotext{30}{40}{6}
+\autotext{30}{4}{6}
 \clearpage 
 \phantomsection
 \pdfbookmark[0]{Acknowledgments}{A}
